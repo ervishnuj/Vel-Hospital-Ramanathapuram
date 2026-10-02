@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vel Hospital | Eye Care & General Hospital | Ramanathapuram</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; color: #1e293b; background: #f8fafc; line-height: 1.6; }
+    header {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: white; padding: 1rem 5%; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.12);
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .logo { font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .logo-icon {
+      background: white; color: #1e40af; width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    }
+    nav a { color: white; text-decoration: none; margin-left: 1.3rem; font-weight: 500; font-size: 0.95rem; }
+    nav a:hover { opacity: 0.85; }
+    .hero {
+      background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+      color: white; padding: 4.5rem 5% 5rem; text-align: center;
+    }
+    .hero .badge {
+      display: inline-block; background: rgba(255,255,255,0.2); padding: 0.4rem 1.2rem;
+      border-radius: 50px; font-size: 0.9rem; margin-bottom: 1.2rem;
+    }
+    .hero h1 { font-size: 2.6rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .hero p { font-size: 1.15rem; max-width: 620px; margin: 0 auto 2rem; opacity: 0.95; }
+    .btn {
+      display: inline-block; background: white; color: #1e40af; padding: 0.95rem 2.2rem;
+      border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.05rem;
+      transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.18); }
+    .btn-outline { background: transparent; color: white; border: 2px solid white; margin-left: 0.8rem; }
+    .section { padding: 4.5rem 5%; max-width: 1200px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title h2 { font-size: 2.1rem; color: #1e40af; margin-bottom: 0.5rem; }
+    .section-title p { color: #64748b; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.8rem;
+    }
+    .service-card {
+      background: white; border-radius: 16px; padding: 2rem 1.5rem; text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.3s; border: 1px solid #e2e8f0;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(30,64,175,0.12); }
+    .service-icon { font-size: 2.6rem; margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.15rem; color: #1e40af; margin-bottom: 0.5rem; }
+    .service-card p { color: #64748b; font-size: 0.95rem; }
+    .about-box {
+      background: #eff6ff; border-radius: 20px; padding: 3rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;
+    }
+    .about-box h2 { color: #1e40af; font-size: 1.9rem; margin-bottom: 1rem; }
+    .about-box p { color: #334155; margin-bottom: 1rem; }
+    .features { list-style: none; margin-top: 1rem; }
+    .features li { padding: 0.4rem 0; color: #1e40af; font-weight: 500; }
+    .features li::before { content: "✓ "; font-weight: 700; }
+    .info-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .info-card {
+      background: white; padding: 1.5rem; border-radius: 14px; text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .info-card h4 { color: #1e40af; margin-bottom: 0.5rem; }
+    .appointment {
+      background: white; border-radius: 20px; padding: 2.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08); max-width: 620px; margin: 0 auto;
+    }
+    .appointment h2 { text-align: center; color: #1e40af; margin-bottom: 1.5rem; font-size: 1.8rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-weight: 500; margin-bottom: 0.4rem; color: #334155; font-size: 0.95rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 0.8rem 1rem; border: 1.5px solid #cbd5e1; border-radius: 10px;
+      font-family: inherit; font-size: 1rem;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: #3b82f6;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .submit-btn {
+      width: 100%; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white;
+      padding: 1rem; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 600;
+      cursor: pointer; margin-top: 0.5rem;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(30,64,175,0.3); }
+    #successMsg {
+      display: none; background: #dbeafe; color: #1e40af; padding: 1rem;
+      border-radius: 10px; text-align: center; margin-top: 1rem; font-weight: 500;
+    }
+    footer {
+      background: #0f172a; color: #94a3b8; text-align: center; padding: 2rem 5%; margin-top: 3rem;
+    }
+    footer strong { color: white; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      nav a { margin-left: 0.8rem; font-size: 0.85rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .about-box { grid-template-columns: 1fr; }
+      .btn-outline { margin-left: 0; margin-top: 0.8rem; display: inline-block; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <div class="logo-icon">👁️</div>
+        Vel Hospital
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#appointment">Appointment</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="badge">★ Eye Care & Neurology • Kenikarai, Ramanathapuram</div>
+    <h1>Vel Hospital</h1>
+    <p>Specialized Eye Care & Neurological Consultations<br>
+    Trusted Private Hospital in Thiruvalluvar Street, Kenikarai</p>
+    <a href="#appointment" class="btn">Book Appointment</a>
+    <a href="tel:9487804442" class="btn btn-outline">Call Now</a>
+  </section>
+
+  <section class="section" id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Eye Care • Neurology • General Medical Support</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">👁️</div>
+        <h3>Ophthalmology (Eye Care)</h3>
+        <p>Comprehensive eye examinations and treatments</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Neurology Consultations</h3>
+        <p>Neurological care including Dr. Malayarasu</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🩺</div>
+        <h3>General Consultation</h3>
+        <p>Routine medical consultations and check-ups</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Eye Diagnostics</h3>
+        <p>Vision testing and eye-related investigations</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💊</div>
+        <h3>Follow-up Care</h3>
+        <p>Regular monitoring and treatment follow-ups</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏥</div>
+        <h3>Outpatient Services</h3>
+        <p>Convenient outpatient care for local patients</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="about-box">
+      <div>
+        <h2>About Vel Hospital</h2>
+        <p>Vel Hospital is a private hospital located on Thiruvalluvar Street in the D.D. Vinayagar / Kenikarai area of Ramanathapuram.</p>
+        <p>It is known locally for ophthalmology (eye care) services and also offers neurological consultations. The hospital is easily accessible near Syed Ammal Matriculation Higher Secondary School.</p>
+        <ul class="features">
+          <li>Specialized in Eye Care (Ophthalmology)</li>
+          <li>Neurology Consultations Available</li>
+          <li>Convenient Kenikarai Location</li>
+          <li>Near Syed Ammal School Landmark</li>
+          <li>Open until 12:00 AM</li>
+        </ul>
+      </div>
+      <div class="info-cards">
+        <div class="info-card">
+          <h4>📍 Address</h4>
+          <p>36, Thiruvalluvar Street,<br>D.D. Vinayagar (Kenikarai),<br>Ramanathapuram – 623504</p>
+        </div>
+        <div class="info-card">
+          <h4>📞 Phone</h4>
+          <p><a href="tel:9487804442" style="color:#1e40af;font-weight:600;text-decoration:none;">94878 04442</a></p>
+        </div>
+        <div class="info-card">
+          <h4>⏰ Timing</h4>
+          <p>Open until 12:00 AM<br>Extended Hours</p>
+        </div>
+        <div class="info-card">
+          <h4>📍 Landmark</h4>
+          <p>Near Syed Ammal<br>Matriculation HSS</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="appointment">
+    <div class="appointment">
+      <h2>Book Your Appointment</h2>
+      <form id="apptForm" onsubmit="return handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="name" required placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="phone" required placeholder="98765 43210">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Department / Reason</label>
+          <select id="service">
+            <option value="">Select</option>
+            <option value="Eye">Eye Care / Ophthalmology</option>
+            <option value="Neuro">Neurology</option>
+            <option value="General">General Consultation</option>
+            <option value="Followup">Follow-up</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" id="date">
+          </div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select id="time">
+              <option value="">Select Time</option>
+              <option>09:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>04:00 PM</option>
+              <option>05:00 PM</option>
+              <option>06:00 PM</option>
+              <option>07:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="message" rows="3" placeholder="Any special request or symptoms..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Request Appointment</button>
+      </form>
+      <div id="successMsg">
+        ✅ Appointment request received successfully!<br>
+        (This is a DEMO – Hospital will contact you soon)
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Vel Hospital – Kenikarai, Ramanathapuram</p>
+    </div>
+    <div class="info-cards">
+      <div class="info-card">
+        <h4>📍 Location</h4>
+        <p>36, Thiruvalluvar Street,<br>D.D. Vinayagar (Kenikarai),<br>Ramanathapuram – 623504</p>
+      </div>
+      <div class="info-card">
+        <h4>📞 Phone</h4>
+        <p><a href="tel:9487804442" style="color:#1e40af;font-weight:600;text-decoration:none;">94878 04442</a></p>
+      </div>
+      <div class="info-card">
+        <h4>⏰ Timing</h4>
+        <p>Open until 12:00 AM<br>Extended Hours</p>
+      </div>
+      <div class="info-card">
+        <h4>📍 Landmark</h4>
+        <p>Near Syed Ammal<br>Matriculation Higher Secondary School</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Vel Hospital Ramanathapuram</strong></p>
+    <p>36, Thiruvalluvar Street, D.D. Vinayagar (Kenikarai), Ramanathapuram – 623504</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">© 2026 Demo Website for demonstration purpose only.</p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      if (!name || !phone) {
+        alert('Please fill Name and Phone number');
+        return false;
+      }
+      document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('apptForm').reset();
+      document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth' });
+      return false;
+    }
+  </script>
+</body>
+</html>
